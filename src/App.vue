@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <!-- 头部 -->
+    <v-header :seller="seller"></v-header>
+
     <img src="./assets/logo.png">
     <div class="tab">
       <div class="tab-item">
@@ -23,8 +26,22 @@
 </template>
 
 <script>
+import header from './components/header/header.vue'
+import data from './common/json/data.json'
 export default {
-  name: 'app'
+  name: 'app',
+  data () {
+    return {
+      seller: {}
+    }
+  },
+  created () {
+    console.log(data.seller)
+    this.seller = data.seller
+  },
+  components: {
+    'v-header': header
+  }
 }
 </script>
 
@@ -39,10 +56,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
   .tab{
     position: fixed;
+    background-color: #333;
+    z-index: 100;
     bottom: 0;
     left: 0;
     width: 100%;
