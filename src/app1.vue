@@ -2,14 +2,16 @@
   <div id="app1">
     <!-- 头部 -->
 
-    <v-header :seller="seller"></v-header>
-
-    <img src="./assets/logo.png">
     <div class="tab">
       <div class="tab-item">
       <router-link v-bind:to="'/Hello'">
       主页
       </router-link>
+      </div>
+      <div class="tab-item">
+        <router-link to="/product">
+          产品列表
+        </router-link>
       </div>
       <div class="tab-item">
         <router-link to="/news">
@@ -28,7 +30,7 @@
 
 <script>
 import header from './components/header/header.vue'
-import data from './common/json/data.json'
+
 export default {
   name: 'app1',
   data () {
@@ -36,13 +38,7 @@ export default {
       seller: {}
     }
   },
-  created () {
-    console.log(data.seller)
-    this.seller = data.seller
-  },
-  components: {
-    'v-header': header
-  }
+
 }
 </script>
 
@@ -70,7 +66,7 @@ export default {
     border-top: 1px solid #ccc;
   }
   .tab-item{
-    width: 33.33%;
+    width: 25%;
     float: left;
   }
   .tab-item a:hover{
