@@ -5,17 +5,17 @@
     <div class="tab">
       <div class="tab-item">
       <router-link v-bind:to="'/Hello'">
-      主页
+        首页
       </router-link>
       </div>
       <div class="tab-item">
         <router-link to="/product">
-          产品列表
+         产品列表
         </router-link>
       </div>
       <div class="tab-item">
         <router-link to="/news">
-          消息
+          旅行头条
         </router-link>
       </div>
       <div class="tab-item">
@@ -24,7 +24,9 @@
         </router-link>
       </div>
     </div>
-    <router-view></router-view>
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
