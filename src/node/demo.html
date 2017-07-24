@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="../../static/js/jquery-2.0.3.min.js"></script>
+
+</head>
+<body>
+
+<h1>测试jquery + node </h1>
+<script>
+  $(function () {
+    console.log("1");
+    $.ajax({
+      type: "GET",
+      url: 'http://localhost:3000/demo',
+      dataType: "json",  //由于客户端与远程资源不处于同一服务器，所以需要使用jsonp
+      success: function(data) {
+        console.log(JSON.parse(data));
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        alert('error ' + textStatus + " " + errorThrown);
+      },
+//      error: function(err) {
+//        console.log(err)
+//      }
+    });
+  })
+</script>
+</body>
+</html>
